@@ -35,7 +35,7 @@ std::string Vector2::toString()
     std::string str;
 
     str.append("x: " + std::to_string(vect.x) + "\tt: " + std::to_string(vect.y) + "\n");
-    str.append("vector length: " + std::to_string(length()) + "\n");
+    str.append("vector length: " + std::to_string(length()));
 
     return str;
 }
@@ -60,17 +60,19 @@ bool Vector2::compareDoble(const double a, const double b)
 }
 
 Vector2::Vector2(){
+    std::cout << "Vector2() construct" << std::endl; // todo dbg
     vectorFromPoint();
 }
 
 Vector2::Vector2(const Point2 &a, const Point2 &b){
+    std::cout << "Vector2(const Point2 &a, const Point2 &b) construct" << std::endl; // todo dbg
     this->a = a;
     this->b = b;
     vectorFromPoint();
 }
 
-Vector2::Vector2(const Point2 &vector)
-{
+Vector2::Vector2(const Point2 &vector){
+    std::cout << "Vector2(const Point2 &vector) construct" << std::endl; // todo dbg
     this->vect = vector;
     pointFromVector();
 }
@@ -108,10 +110,5 @@ Vector2 &Vector2::operator+=(const Vector2 &vector)
 
 double Vector2::angle(const Vector2 &v1, const Vector2 &v2)
 {
-    return acos(scalar(v1, v2) / (v1.length() * v2.length()));
-}
-
-double Vector2::scalar(const Vector2 &v1, const Vector2 &v2)
-{
-    return v1.getVect().x * v2.getVect().x + v1.getVect().y * v2.getVect().y;
+    return acos((v1.getVect().x * v2.getVect().x + v1.getVect().y * v2.getVect().y) / (v1.length() * v2.length()));
 }

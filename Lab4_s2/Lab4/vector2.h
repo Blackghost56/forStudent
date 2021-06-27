@@ -1,6 +1,7 @@
 #ifndef VECTOR2_H
 #define VECTOR2_H
 
+#include <iostream> // todo dbg
 #include <string>
 
 struct Point2
@@ -28,15 +29,16 @@ public:
     Vector2();                      // zero vector
     Vector2(const Point2 &a, const Point2 &b);
     Vector2(const Point2 &vector);
+    // todo dbg
+    ~Vector2(){std::cout << "~Vector2() destruct" << std::endl;};
 
 
-    double length() const;          // Vector module
+    double length() const;                      // Vector module
     bool operator||(const Vector2 &vector);
-    Vector2 operator+(const Vector2 &vector);
-    Vector2 &operator+=(const Vector2 &vector);
+    Vector2 operator+(const Vector2 &vector);   // !!! Create new vector
+    Vector2 &operator+=(const Vector2 &vector); // Modificate current vector
 
     static double angle(const Vector2 &v1, const Vector2 &v2);  // rad
-    static double scalar(const Vector2 &v1, const Vector2 &v2);
 
     Point2 getA() const;
     void setA(const Point2 &value);
