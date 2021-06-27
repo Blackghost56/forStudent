@@ -85,7 +85,8 @@ double Vector2::length() const
 bool Vector2::operator||(const Vector2 &vector)
 {
     double ang = angle(*this, vector);
-    if (compareDoble(ang, 0.0) || compareDoble(ang, M_PI))
+    if (compareDoble(ang, 0.0) || compareDoble(ang, M_PI)
+            || compareDoble(length(), 0.0) || compareDoble(vector.length(), 0.0))
         return true;
     return false;
 }

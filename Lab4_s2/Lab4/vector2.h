@@ -7,12 +7,12 @@
 struct Point2
 {
     Point2(){}
-    Point2(int x, int y){
+    Point2(double x, double y){
         this->x = x;
         this->y = y;
     }
-    int x = 0;
-    int y = 0;
+    double x = 0.0;
+    double y = 0.0;
 };
 
 class Vector2
@@ -34,9 +34,9 @@ public:
 
 
     double length() const;                      // Vector module
-    bool operator||(const Vector2 &vector);
+    bool operator||(const Vector2 &vector);     // Collinear vectors
     Vector2 operator+(const Vector2 &vector);   // !!! Create new vector
-    Vector2 &operator+=(const Vector2 &vector); // Modificate current vector
+    Vector2 &operator+=(const Vector2 &vector); // !!! Modificate current vector
 
     static double angle(const Vector2 &v1, const Vector2 &v2);  // rad
 

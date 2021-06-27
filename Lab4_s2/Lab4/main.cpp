@@ -15,7 +15,7 @@ int main()
     std::cout << "------------------" << std::endl;
 
     //    Vector2 vector2(Point2(4, 4), Point2(0, 0));
-    Vector2 vector2(Point2(0, 0), Point2(0, 0));
+    Vector2 vector2(Point2(0, 0), Point2(0, 1));
     std::cout << "vector 2" << std::endl << vector2.toString() << std::endl;
 
     std::cout << "------------------" << std::endl;
